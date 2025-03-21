@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+  <meta name="description" content="Bienvenue dans le zoo interactif, explorez nos animaux, carte et infos." />
+  <title>Mon Zoo Interactif</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/icone.png" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+  <header>
+    <h1>🐾 Bienvenue à Mon Zoo</h1>
+    <nav>
+      <button onclick="goToSection('carte-zoo')">Carte interactive</button>
+      <button onclick="goToSection('infos')">Infos pratiques</button>
+      <button onclick="goToSection('urgence')" class="urgence-btn">📞 Urgence</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="carte-zoo" class="container">
+      <h2>Carte Interactive du Zoo</h2>
+      <div class="svg-container" aria-label="Carte SVG du zoo">
+        <svg viewBox="0 0 800 600">
+          <a href="#" onclick="afficherInfo('lions')" aria-label="Zone des lions">
+            <rect x="100" y="100" width="200" height="150" fill="#f4c542" class="zone" />
+            <text x="130" y="180" fill="#000">Lions</text>
+          </a>
+          <a href="#" onclick="afficherInfo('pandas')" aria-label="Zone des pandas">
+            <circle cx="500" cy="180" r="80" fill="#9dd6df" class="zone" />
+            <text x="470" y="185" fill="#000">Pandas</text>
+          </a>
+          <a href="#" onclick="afficherInfo('girafes')" aria-label="Zone des girafes">
+            <rect x="150" y="350" width="200" height="100" fill="#bada55" class="zone" />
+            <text x="190" y="410" fill="#000">Girafes</text>
+          </a>
+        </svg>
+      
+      </div>
+      <div id="info-zone" class="info-zone" role="region" aria-labelledby="zone-nom" aria-live="polite">
+        <h3 id="zone-nom"></h3>
+         <img id="zone-image" src="" alt="" />
+        <audio id="zone-audio" controls>
+          Votre navigateur ne supporte pas l’audio.
+        </audio>
+        <p id="zone-description"></p>
+      </div>
+    </section>
+
+    <section id="map">
+      <h2>Carte réelle du zoo 🗺️</h2>
+      <div id="carte"></div>
+    </section>
+
+    <section id="infos">
+      <h2>Informations pratiques</h2>
+      <p>
+        ⏰ Horaires : 9h - 18h<br />
+        💶 Tarifs : Adultes 15€ | Enfants 10€
+      </p>
+    </section>
+
+    <section id="urgence">
+      <h2>Urgence</h2>
+      <p>
+        📢 En cas de problème, contactez un membre du personnel ou rendez-vous au poste de secours.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mon Zoo - Tous droits réservés</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
